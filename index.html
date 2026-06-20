@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Bayu Ananda Putra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo"><i>Bayu Ananda Putra</i></a>
+        <div class="nav-links">
+            <a href="#keahlian"><u>Keahlian</u></a>
+            <a href="#proyek"><u>Proyek</u></a>
+            <a href="#kontak"><u>Kontak</u></a>
+        </div>
+    </nav>
+
+    <div class="container animate-fade">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Halo, Saya <br><span>Bayu Ananda Putra</span></h1>
+                <p><i>Saya adalah siswa Rekayasa Perangkat Lunak (RPL) yang memiliki minat dalam pengembangan website dan teknologi. Saya terus belajar dan mengembangkan keterampilan pemrograman untuk menciptakan solusi digital yang bermanfaat.</i></p>
+                <a href="#kontak" class="btn">Mari Berdiskusi</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.pinimg.com/736x/ee/4c/d3/ee4cd35eac321b1e1d811ad00ba349af.jpg" alt="Foto Profil">
+            </div>
+        </section>
+
+        <h2 id="keahlian" class="section-title">Keahlian Teknis</h2>
+        <div class="skills-container">
+            <span class="skill-badge"><i class="devicon-html5-plain" style="color: #e34f26; margin-right: 5px;"></i> HTML5</span>
+            <span class="skill-badge"><i class="devicon-css3-plain" style="color: #1572b6; margin-right: 5px;"></i> CSS3</span>
+            <span class="skill-badge"><i class="devicon-javascript-plain" style="color: #f7df1e; margin-right: 5px;"></i> JavaScript Dasar</span>
+            <span class="skill-badge"><i class="devicon-github-original" style="margin-right: 5px;"></i> Git & GitHub</span>
+            <span class="skill-badge"><i class="devicon-figma-plain" style="color: #F24E1E; margin-right: 5px;"></i> UI/UX Design</span>
+        </div>
+
+        <div class="section-alternate">
+            <h2 id="proyek" class="section-title" style="margin-top: 0;">Proyek Pilihan</h2>
+            
+            <div class="portfolio-grid" id="daftar-proyek">
+                </div>
+        </div>
+
+        <h2 id="kontak" class="section-title" style="color:rgb(188, 182, 196)"><i>Hubungi Saya</i></h2>
+        <div class="contact-links">
+            <a href="https://www.tiktok.com/@baysoftspoken_?_r=1&_t=ZS-95nOp82NIAv"><u>Tiktok</u></a>
+            <a href="https://www.instagram.com/bayywho?igsh=ejhlczc1cncxeWFm" target="_blank"><u>Instagram</u></a>
+            <a href="https://github.com/Bayynwooo" target="_blank"><u>Github</u></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Bayy</p>
+    </footer>
+
+    <script src="data.js"></script>
+
+    <script>
+        const bagianProyek = document.getElementById('daftar-proyek');
+        let htmlCard = '';
+
+        for (const [id, data] of Object.entries(databaseProyek)) {
+            
+            let deskripsiSingkat = data.latar.substring(0, 90) + "...";
+
+            htmlCard += `
+                <div class="card">
+                    <img src="${data.gambar}" alt="${data.judul}">
+                    <div class="card-content">
+                        <h3>${data.judul}</h3>
+                        <p>${deskripsiSingkat}</p>
+                        <a href="detail.html?id=${id}" class="btn btn-outline" style="text-align: center; display: block; margin-top: 15px;">Lihat Detail</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        bagianProyek.innerHTML = htmlCard;
+    </script>
+
+</body>
+</html>
